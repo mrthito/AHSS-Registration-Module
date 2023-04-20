@@ -308,7 +308,7 @@ class WordpressController extends Controller
         // dd($payment_intent->toArray());
 
         // Get stripe invoice:
-        $invoice = \Stripe\Invoice::retrieve($session->invoice);
+        // $invoice = \Stripe\Invoice::retrieve($session->invoice);
 
         $order = DB::table('pmpro_membership_orders')->where('code', $code)->first();
         if ($order) {
@@ -327,7 +327,7 @@ class WordpressController extends Controller
             ]);
         }
 
-        return redirect()->away($invoice->hosted_invoice_url);
+        return redirect()->away(env('MAIN_DOMAIN'));
     }
 
     public function uploadCSVUser(Request $request)
