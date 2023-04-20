@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\WordpressController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,11 @@ Route::get('/upload', function () {
 });
 
 Route::post('/upload', [WordpressController::class, 'uploadCSVUser'])->name('upload');
+
+Route::get('/lll', function () {
+    return config('database');
+});
+
+Route::get('/lll', function () {
+    return DB::connection('mysql2')->select('select * from wp_users');
+});

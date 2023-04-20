@@ -556,6 +556,7 @@ class RegisterForm extends Component
             'subscription_transaction_id' => '',
             'timestamp' => date('Y-m-d H:i:s'),
             'affiliate_id' => '',
+            'payment_transaction_id' => '',
             'affiliate_subid' => '',
             'notes' => '',
         ]);
