@@ -63,9 +63,8 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <img class="img-fluid mouse-link"
-                        src="https://surgerysociety.unipegasusinfotechsolutions.com/wp-content/uploads/2023/01/surgerysociety_logo.png"
-                        alt="logo"
-                        onclick="window.location.href='https://surgerysociety.unipegasusinfotechsolutions.com/'">
+                        src="{{ env('MAIN_DOMAIN') }}wp-content/uploads/2023/01/surgerysociety_logo.png" alt="logo"
+                        onclick="window.location.href='{{ env('MAIN_DOMAIN') }}'">
                 </div>
                 <div class="col-6 login text-end">
                     <h6>
@@ -86,8 +85,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page"
-                                    href="https://surgerysociety.unipegasusinfotechsolutions.com/">Home</a>
+                                <a class="nav-link active" aria-current="page" href="{{ env('MAIN_DOMAIN') }}">Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -96,23 +94,22 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/mission-statement/"
+                                        <a href="{{ env('MAIN_DOMAIN') }}mission-statement/"
                                             class="dropdown-item">Mission Statement</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/current-executives/"
+                                        <a href="{{ env('MAIN_DOMAIN') }}current-executives/"
                                             class="dropdown-item">Current Executive</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/hand-surgeon-directory/"
+                                        <a href="{{ env('MAIN_DOMAIN') }}hand-surgeon-directory/"
                                             class="dropdown-item">Hand Surgeon Directory</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/history/"
-                                            class="dropdown-item">History</a>
+                                        <a href="{{ env('MAIN_DOMAIN') }}history/" class="dropdown-item">History</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/australian-hand-surgery-societies/"
+                                        <a href="{{ env('MAIN_DOMAIN') }}australian-hand-surgery-societies/"
                                             class="dropdown-item">Australian State Hand Surgery Societies</a>
                                     </li>
                                 </ul>
@@ -125,17 +122,17 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
                                         <a class="dropdown-item"
-                                            href="https://surgerysociety.unipegasusinfotechsolutions.com/member-requirements/">Member
+                                            href="{{ env('MAIN_DOMAIN') }}member-requirements/">Member
                                             Requirements</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item"
-                                            href="https://surgerysociety.unipegasusinfotechsolutions.com//membership-account/membership-levels/">Member
+                                            href="{{ env('MAIN_DOMAIN') }}/membership-account/membership-levels/">Member
                                             Join Form</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item"
-                                            href="https://surgerysociety.unipegasusinfotechsolutions.com/hand-surgery-journal/">Hand
+                                            href="{{ env('MAIN_DOMAIN') }}hand-surgery-journal/">Hand
                                             Surgery Journal</a>
                                     </li>
                                 </ul>
@@ -147,54 +144,50 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/pfet-programme/"
-                                            class="dropdown-item">PFET Programme</a>
+                                        <a href="{{ env('MAIN_DOMAIN') }}pfet-programme/" class="dropdown-item">PFET
+                                            Programme</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/general-fellowship-positions/"
+                                        <a href="{{ env('MAIN_DOMAIN') }}general-fellowship-positions/"
                                             class="dropdown-item">General Fellowship Positions</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/victoria/"
-                                            class="dropdown-item">Victoria</a>
+                                        <a href="{{ env('MAIN_DOMAIN') }}victoria/" class="dropdown-item">Victoria</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/western-australia/"
+                                        <a href="{{ env('MAIN_DOMAIN') }}western-australia/"
                                             class="dropdown-item">Western Australia</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/queensland/"
+                                        <a href="{{ env('MAIN_DOMAIN') }}queensland/"
                                             class="dropdown-item">Queensland</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/new-south-wales/"
-                                            class="dropdown-item">New South Wales</a>
+                                        <a href="{{ env('MAIN_DOMAIN') }}new-south-wales/" class="dropdown-item">New
+                                            South Wales</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/south-australia/"
-                                            class="dropdown-item">South Australia</a>
+                                        <a href="{{ env('MAIN_DOMAIN') }}south-australia/" class="dropdown-item">South
+                                            Australia</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/new-zealand/"
-                                            class="dropdown-item">New Zealand</a>
+                                        <a href="{{ env('MAIN_DOMAIN') }}new-zealand/" class="dropdown-item">New
+                                            Zealand</a>
                                     </li>
                                     <li>
-                                        <a href="https://surgerysociety.unipegasusinfotechsolutions.com/journal-club/"
-                                            class="dropdown-item">Journal Club</a>
+                                        <a href="{{ env('MAIN_DOMAIN') }}journal-club/" class="dropdown-item">Journal
+                                            Club</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"
-                                    href="https://surgerysociety.unipegasusinfotechsolutions.com/events">Events</a>
+                                <a class="nav-link" href="{{ env('MAIN_DOMAIN') }}events">Events</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"
-                                    href="https://surgerysociety.unipegasusinfotechsolutions.com/blog/">Latest News</a>
+                                <a class="nav-link" href="{{ env('MAIN_DOMAIN') }}blog/">Latest News</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"
-                                    href="https://surgerysociety.unipegasusinfotechsolutions.com/#getTouchID">Contact</a>
+                                <a class="nav-link" href="{{ env('MAIN_DOMAIN') }}#getTouchID">Contact</a>
                             </li>
                         </ul>
                     </div>
