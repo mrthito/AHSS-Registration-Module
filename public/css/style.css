@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+header .login img {
+    height: 37px;
+    width: 37px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+header nav {
+    background: #3BA0D4;
+    color: #fff !important;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.nav-link .active {
+    color: black;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    background: #3BA0D4;
+}
+
+header nav ul li .dropdowm-item {
+    color: #fff !important;
+}
+
+
+footer {
+    background: #000;
+    color: #fff;
+    align-items: center;
+}
+
+footer ul {
+    list-style: none;
+    text-align: end;
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar .navbar-nav .nav-item .nav-link {
+        padding: 0 17px;
+    }
+
+    .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
+        border-right: 2px solid #ffffff;
+    }
+}
+
+@media(max-width:768px) {
+    footer ul {
+        list-style: none;
+        text-align: center;
+    }
+}
