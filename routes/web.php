@@ -36,6 +36,5 @@ Route::get('/lll', function () {
     return config('database');
 });
 
-Route::get('/lll', function () {
-    return DB::connection('mysql2')->select('select * from wp_users');
-});
+Route::get('/insert-invoice', [WordpressController::class, 'insertInvoice'])->name('insert-invoice');
+Route::post('/insert-invoice', [WordpressController::class, 'insertInvoiceSave'])->name('insert-invoice');

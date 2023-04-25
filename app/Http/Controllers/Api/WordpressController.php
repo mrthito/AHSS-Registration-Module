@@ -712,4 +712,82 @@ class WordpressController extends Controller
             }
         }
     }
+
+    public function insertInvoice(Request $request)
+    {
+        $users = DB::table('users')->get();
+        $levels = DB::table('pmpro_membership_levels')->get();
+        return view('insert-invoice', compact('users', 'levels'));
+    }
+
+    public function insertInvoiceSave(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required',
+            'year' => 'required',
+            'level_id' => 'required',
+            'payment' => 'required',
+        ]);
+
+        $user_id = $request->user_id;
+        $year = $request->year;
+        $membership = $request->level_id;
+        $payment = $request->payment;
+
+        $member = DB::table('users')->where('ID', $user_id)->first();
+        $level = DB::table('pmpro_membership_levels')->where('id', $membership)->first();
+
+        // meta
+        $meta = DB::table('usermeta')->where('user_id', $user_id)->get();
+        // dd($meta->toArray());
+        $first_name = DB::table('usermeta')->where('user_id', $user_id)->where('meta_key', 'first_name')->first();
+        $last_name = DB::table('usermeta')->where('user_id', $user_id)->where('meta_key', 'last_name')->first();
+        $address = DB::table('usermeta')->where('user_id', $user_id)->where('meta_key', 'pmpro_baddress1')->first();
+        $city = DB::table('usermeta')->where('user_id', $user_id)->where('meta_key', 'pmpro_bcity')->first();
+        $state = DB::table('usermeta')->where('user_id', $user_id)->where('meta_key', 'pmpro_bstate')->first();
+        $zip = DB::table('usermeta')->where('user_id', $user_id)->where('meta_key', 'pmpro_bzipcode')->first();
+        // dd($zip);
+        $country = DB::table('usermeta')->where('user_id', $user_id)->where('meta_key', 'pmpro_bcountry')->first();
+        $phone = DB::table('usermeta')->where('user_id', $user_id)->where('meta_key', 'pmpro_bphone')->first();
+        if ($payment == 'initial') {
+            $subtotal = $level->initial_payment;
+            $total = $level->initial_payment;
+        } else {
+            $subtotal = $level->billing_amount;
+            $total = $level->billing_amount;
+        }
+
+        DB::table('pmpro_membership_orders')->insert([
+            'code' => str()->ucfirst(str()->random(10)),
+            'session_id' => session()->getId(),
+            'user_id' => $user_id,
+            'membership_id' => $membership,
+            'paypal_token' => '',
+            'billing_name' => $first_name->meta_value . ' ' . $last_name->meta_value,
+            'billing_street' => $address->meta_value ?? 'N/A',
+            'billing_city' => $city->meta_value ?? 'N/A',
+            'billing_state' => $state->meta_value ?? 'N/A',
+            'billing_zip' => $zip->meta_value ?? 'N/A',
+            'billing_country' => $country->meta_value ?? 'N/A',
+            'billing_phone' => $phone->meta_value ?? 'N/A',
+            'subtotal' => $subtotal,
+            'tax' => 0,
+            'couponamount' => '',
+            'checkout_id' => DB::table('pmpro_membership_orders')->max('checkout_id') + 1,
+            'certificate_id' => '0',
+            'certificateamount' => '',
+            'total' => $total,
+            'status' => 'pending',
+            'gateway' => 'stripe',
+            'gateway_environment' => 'live',
+            'subscription_transaction_id' => '',
+            'payment_transaction_id' => '',
+            'timestamp' => date($year . '-01-01 00:00:00'),
+            'affiliate_id' => '',
+            'affiliate_subid' => '',
+            'notes' => '',
+        ]);
+
+        return redirect()->back()->with('success', 'Invoice added successfully.');
+    }
 }
